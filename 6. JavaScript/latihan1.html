@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Sederhana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .kalkulator {
+      background: white;
+      padding: 25px 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+    input[type="number"] {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      text-align: center;
+      font-size: 16px;
+    }
+    button {
+      margin: 6px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    #hasil {
+      font-size: 22px;
+      font-weight: bold;
+      color: #007bff;
+      margin-top: 15px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="kalkulator">
+    <h2>Kalkulator Sederhana</h2>
+
+    <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+    <br>
+    <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+    <br>
+
+    <div>
+      <button onclick="hitung('+')">+</button>
+      <button onclick="hitung('-')">−</button>
+      <button onclick="hitung('*')">×</button>
+      <button onclick="hitung('/')">÷</button>
+    </div>
+
+    <h3>Hasil:</h3>
+    <div id="hasil">0</div>
+  </div>
+
+  <script>
+    function hitung(operator) {
+      let a = parseFloat(document.getElementById("angka1").value);
+      let b = parseFloat(document.getElementById("angka2").value);
+      let hasil;
+
+      if (isNaN(a) || isNaN(b)) {
+        hasil = "Masukkan kedua angka!";
+      } else {
+        switch (operator) {
+          case '+': hasil = a + b; break;
+          case '-': hasil = a - b; break;
+          case '*': hasil = a * b; break;
+          case '/': hasil = (b !== 0) ? (a / b) : "Tidak bisa dibagi 0"; break;
+        }
+      }
+      document.getElementById("hasil").innerText = hasil;
+    }
+  </script>
+</body>
+</html>

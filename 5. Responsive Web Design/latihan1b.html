@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Latihan 1b - Logo UNS ( > 1024px )</title>
+    <style>
+        body{
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 40px;
+            text-align: center;
+        }
+
+        h2.instruction {
+            color: #0b63a4;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .uns-logo {
+            display: none;
+            margin: 0 auto;
+            max-width: 300px;
+            height: auto;
+        }
+
+        @media screen and (min-width: 1025px) {
+            .uns-logo {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 class="instruction">
+        Media Quary CSS3
+    </h2>
+    <img src="LOGOUNS.png" alt="Logo UNS" class="uns-logo">
+    <p style="font-style:italic; font-size:0.9rem; color:#000000;">
+     LOGO HANYA MUNCUL JIKA TERDETEKSI UKURAN DESKTOP (1024px)
+    </p>
+</body>
+</html>
