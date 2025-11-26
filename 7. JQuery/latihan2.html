@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan 2 - Jam Digital jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #clock {
+      font-size: 50px;
+      background: #111;
+      color: #0f0;
+      padding: 20px 40px;
+      border-radius: 12px;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">00:00:00</div>
+  <button id="toggle">START</button>
+
+  <script>
+    $(document).ready(function(){
+      let running = false;
+      let interval;
+
+      function updateClock() {
+        const now = new Date();
+        const jam = String(now.getHours()).padStart(2, '0');
+        const menit = String(now.getMinutes()).padStart(2, '0');
+        const detik = String(now.getSeconds()).padStart(2, '0');
+        $("#clock").text(`${jam}:${menit}:${detik}`);
+      }
+
+      $("#toggle").click(function(){
+        if (!running) {
+          interval = setInterval(updateClock, 1000);
+          $(this).text("STOP");
+          running = true;
+        } else {
+          clearInterval(interval);
+          $(this).text("START");
+          running = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

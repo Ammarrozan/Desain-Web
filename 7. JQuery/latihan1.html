@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latihan 1 - Highlight Paragraf PTIK</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding: 40px;
+      line-height: 1.7;
+    }
+
+    h1 {
+      text-align: left;
+      color: #222;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      text-align: justify;
+    }
+
+    span {
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .highlight {
+      color: red;
+      background-color: yellow;
+      font-weight: bold;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PTIK FKIP UNS</h1>
+    <p id="paragraf">
+      The <span>Faculty of Teacher Training and Education, Sebelas Maret University</span>, Surakarta is an 
+      <span>Educational Personnel Education Institution (LPTK)</span> which has 24 study programs in 6 majors. Each study program has its own characteristics 
+      in producing <span>superior, strong and intelligent educational staff</span>.
+      <br><br>
+      The <span>Informatics and Computer Technology Education (PTIK)</span> study program is planned to take shelter in the management of the 
+      <span>Engineering and Vocational Education (PTK)</span> department. This placement revises our previous statement, where the PTIK study program 
+      is under the P.MIPA department. PTIK is a study program that will produce graduates who are 
+      <span>prioritized to teach in vocational/vocational programs</span>. So, it would be better if PTIK was under the PTK department which oversees vocational programs such as 
+      <span>Building Engineering Education</span> and <span>Mechanical Engineering Education</span>. To meet the needs of lecturers in the field of information technology that cannot be met by the PTK department, 
+      PTIK will conduct <span>resource sharing with the mathematics study program</span>.
+    </p>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("p span").hover(
+        function () {
+          $(this).addClass("highlight");
+        },
+        function () {
+          $(this).removeClass("highlight");
+        }
+      );
+    });
+  </script>
+</body>
+</html>
